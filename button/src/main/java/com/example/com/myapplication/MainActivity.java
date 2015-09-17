@@ -1,6 +1,8 @@
 package com.example.com.myapplication;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,11 +20,14 @@ public class MainActivity extends Activity {
         button1 = (Button)findViewById(R.id.button_1);
         button1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Toast.makeText(getApplicationContext(),"버튼을 눌렀어요", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://nate.com")));
             }
         });
     }
-
+    public void button2_onclick(View v){
+        Intent callintent = new Intent(Intent.ACTION_VIEW,Uri.parse("tel:911"));
+        startActivity(callintent);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
