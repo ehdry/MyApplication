@@ -2,6 +2,7 @@ package com.example.com.myapplication;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,21 +13,44 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
     Button button1;
+    Button button2;
+    Button button3;
+    Button button4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        button1.setBackgroundColor(Color.GRAY);
+        button2.setBackgroundColor(Color.GREEN);
+        button3.setBackgroundColor(Color.RED);
+        button4.setBackgroundColor(Color.YELLOW);
         button1 = (Button)findViewById(R.id.button_1);
-        button1.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://nate.com")));
+        button1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent mIntent = new Intent(Intent.ACTION_VIEW,Uri.parse("http://m.nate.com"));
+                startActivity(mIntent);
             }
         });
-    }
-    public void button2_onclick(View v){
-        Intent callintent = new Intent(Intent.ACTION_VIEW,Uri.parse("tel:911"));
-        startActivity(callintent);
+        button2 = (Button)findViewById(R.id.button_2);
+        button2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent mIntent = new Intent(Intent.ACTION_VIEW,Uri.parse("tel:/911"));
+                startActivity(mIntent);
+            }
+        });
+        button3 = (Button)findViewById(R.id.button_3);
+        button3.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent mIntent = new Intent(Intent.ACTION_VIEW,Uri.parse("content://media/internal/images/media"));
+                startActivity(mIntent);
+            }
+        });
+        button4 = (Button)findViewById(R.id.button_4);
+        button4.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                finish();
+            }
+        });
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

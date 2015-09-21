@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Four button</string>
 
-    <string name="hello_world">Hello world!</string>
     <string name="button1_text">nate</string>
-    <string name="button2_text">button2</string>
+    <string name="button2_text">call911</string>
+    <string name="button3_text">openGal</string>
+    <string name="button4_text">finishApp</string>
     <string name="action_settings">Settings</string>
 </resources>
