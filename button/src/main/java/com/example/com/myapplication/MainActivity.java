@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class MainActivity extends Activity {
     Button button1;
@@ -20,10 +19,6 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button1.setBackgroundColor(Color.GRAY);
-        button2.setBackgroundColor(Color.GREEN);
-        button3.setBackgroundColor(Color.RED);
-        button4.setBackgroundColor(Color.YELLOW);
         button1 = (Button)findViewById(R.id.button_1);
         button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
