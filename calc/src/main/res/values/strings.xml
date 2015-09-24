@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">초간단계산기</string>
+
+    <string name="box1">box1</string>
+    <string name="box2">box2</string>
+    <string name="addbtn">add</string>
+    <string name="subbtn">sub</string>
+    <string name="mulbtn">mul</string>
+    <string name="divbtn">div</string>
+    <string name="modbtn">mod</string>
+    <string name="result">결과</string>
+    <string name="action_settings">Settings</string>
+</resources>
