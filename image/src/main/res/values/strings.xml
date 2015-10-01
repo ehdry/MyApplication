@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">안드로이드 사진보기</string>
+
+    <string name="start">선택을 시작하시겠습니까?</string>
+    <string name="on">시작함</string>
+    <string name="off">종료함</string>
+    <string name="choice">좋아하는 안드로이드 버전은?</string>
+    <string name="radiobtn1">젤리빈(4.3)</string>
+    <string name="radiobtn2">킷캣(4.4)</string>
+    <string name="radiobtn3">롤리팝(5.0)</string>
+    <string name="finishbtn">종료</string>
+    <string name="clean">처음으로</string>
+
+    <string name="action_settings">Settings</string>
+</resources>
