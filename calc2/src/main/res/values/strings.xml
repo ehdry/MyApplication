@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">테이블레이아웃 계산기</string>
+    <string name="result">계산 결과 : </string>
+    <string name="action_settings">Settings</string>
+</resources>
