@@ -60,7 +60,7 @@ public class MainActivity extends Activity {
 
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-          
+
             return super.shouldOverrideUrlLoading(view,url);
         }
         // 페이지 로드가 끝났을때 url을 edtUrl로 적어주는 메서드
