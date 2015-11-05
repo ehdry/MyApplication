@@ -37,9 +37,11 @@ public class MainActivity extends Activity {
                 dialogView = (View)View.inflate(MainActivity.this,R.layout.dialog1,null);
                 AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
                 dlg.setTitle("사용자 정보 입력");
+                dlg.setView(dialogView);
+                dlgEdtName = (EditText) dialogView.findViewById(R.id.dlgEdt1);
+                dlgEdtEmail = (EditText) dialogView.findViewById(R.id.dlgEdt2);
                 dlgEdtName.setText(tvName.getText().toString());
                 dlgEdtEmail.setText(tvEmail.getText().toString());
-                dlg.setView(dialogView);
 
                 dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
