@@ -49,7 +49,7 @@ public class MainActivity extends Activity {
                         dlgEdtName = (EditText) dialogView.findViewById(R.id.dlgEdt1);
                         dlgEdtEmail = (EditText) dialogView.findViewById(R.id.dlgEdt2);
                         tvName.setText(dlgEdtName.getText().toString());
-                        tvEmail.setText((dlgEdtName.getText().toString()));
+                        tvEmail.setText((dlgEdtEmail.getText().toString()));
                     }
                 });
                 dlg.setNegativeButton("취소", new DialogInterface.OnClickListener() {
