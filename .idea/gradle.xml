@@ -10,6 +10,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Intent" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/button" />
             <option value="$PROJECT_DIR$/calc" />
@@ -17,7 +18,6 @@
             <option value="$PROJECT_DIR$/dialog" />
             <option value="$PROJECT_DIR$/file" />
             <option value="$PROJECT_DIR$/image" />
-            <option value="$PROJECT_DIR$/myapplication2" />
             <option value="$PROJECT_DIR$/webview" />
           </set>
         </option>
