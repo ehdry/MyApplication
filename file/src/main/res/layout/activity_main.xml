@@ -4,21 +4,29 @@
     android:layout_height="match_parent"  tools:context=".MainActivity"
     android:gravity="center_horizontal"
     android:orientation="vertical">
-
-    <DatePicker
-        android:id="@+id/datePicker1"
-        android:calendarViewShown="false"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <EditText
-        android:id="@+id/edtDiary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:lines="8"/>
-    <Button
-        android:id="@+id/btnWrite"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:enabled="false"/>
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <DatePicker
+               android:id="@+id/datePicker1"
+               android:calendarViewShown="false"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+            <EditText
+               android:id="@+id/edtDiary"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+              android:lines="8"/>
+            <Button
+                  android:id="@+id/btnWrite"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:enabled="false"/>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

@@ -42,7 +42,7 @@ public class MainActivity extends Activity {
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 fileName = Integer.toString(year) + "_" + Integer.toString(monthOfYear+1)+ "_" + Integer.toString(dayOfMonth)+".txt";
                 String str = readDiary(fileName);
-                edtDiary.setText("str");
+                edtDiary.setText(str);
                 btnWrite.setEnabled(true);
             }
         });
