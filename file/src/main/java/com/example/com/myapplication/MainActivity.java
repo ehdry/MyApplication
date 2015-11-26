@@ -37,7 +37,7 @@ public class MainActivity extends Activity {
         int cMonth = cal.get(Calendar.MONTH);
         int cDay = cal.get(Calendar.DAY_OF_MONTH);
 
-        fileName = Integer.toString(cYear)+ "_" + Integer.toString(cMonth)+"_" +Integer.toString(cDay)+".txt";
+        fileName = Integer.toString(cYear)+ "_" + Integer.toString(cMonth+1)+"_" +Integer.toString(cDay)+".txt";
         edtDiary.setText(readDiary(fileName));
         btnWrite.setEnabled(true);
 
