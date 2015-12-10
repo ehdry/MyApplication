@@ -53,6 +53,7 @@ public class MainActivity extends Activity {
                 + edtNumber.getText().toString() + ");");
                 sqlDB.close();
                 Toast.makeText(getApplicationContext(),"입력됨",Toast.LENGTH_SHORT).show();
+                btnInsert.callOnClick();
             }
         });
         btnSelect.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +74,23 @@ public class MainActivity extends Activity {
                 edtNumberResult.setText(strNumbers);
                 cursor.close();
                 sqlDB.close();
+            }
+        });
+        btnChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sqlDB = myHelper.getWritableDatabase();
+                sqlDB.execSQL("UPDATE groupTBL SET gNumber = "+edtNumber.getText().toString() +" WHERE gName = \""+edtName.getText().toString()+"\";");
+                btnChange.callOnClick();
+            }
+        });
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sqlDB = myHelper.getWritableDatabase();
+                sqlDB.execSQL("DELETE FROM groupTBL WHERE gName = \"" + edtName.getText().toString() + "\";");
+                sqlDB.close();
+                btnDelete.callOnClick();
             }
         });
     }
