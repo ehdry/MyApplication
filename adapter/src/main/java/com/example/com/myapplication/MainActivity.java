@@ -74,7 +74,7 @@ public class MainActivity extends Activity {
                     dlg.setNegativeButton("닫기",null);
                     dlg.show();
 
-                    View test = getLayoutInflater().inflate(R.layout.dialog,null);
+                    //View test = getLayoutInflater().inflate(R.layout.dialog,null);
 
                 }
             });

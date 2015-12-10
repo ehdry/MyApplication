@@ -48,12 +48,12 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 sqlDB = myHelper.getWritableDatabase();// 스트링은 ' ' 로 묶어야지
-                sqlDB.execSQL("INSERT INTO groupTBL VALUES ( '"
-                + edtName.getText().toString()+ "',"
+                sqlDB.execSQL("INSERT INTO groupTBL VALUES ('"
+                + edtName.getText().toString()+ "', "
                 + edtNumber.getText().toString() + ");");
                 sqlDB.close();
                 Toast.makeText(getApplicationContext(),"입력됨",Toast.LENGTH_SHORT).show();
-                btnInsert.callOnClick();
+                btnSelect.callOnClick();
             }
         });
         btnSelect.setOnClickListener(new View.OnClickListener() {
@@ -63,8 +63,8 @@ public class MainActivity extends Activity {
                 Cursor cursor;
                 cursor = sqlDB.rawQuery("SELECT * FROM groupTBL;",null);
 
-                String strNames = "그룹 이름" +"\r\n";
-                String strNumbers = "인원"+"\r\n";
+                String strNames = "그룹 이름" +"\r\n"+"-----------"+"\r\n";
+                String strNumbers = "인원"+"\r\n" +"-----------"+"\r\n";
 
                 while(cursor.moveToNext()){
                     strNames += cursor.getString(0) +"\r\n";
@@ -80,29 +80,29 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 sqlDB = myHelper.getWritableDatabase();
-                sqlDB.execSQL("UPDATE groupTBL SET gNumber = "+edtNumber.getText().toString() +" WHERE gName = \""+edtName.getText().toString()+"\";");
-                btnChange.callOnClick();
+                sqlDB.execSQL("UPDATE groupTBL SET gNumber = "+edtNumber.getText().toString() +" WHERE gName = '"+edtName.getText().toString()+"';");
+                btnSelect.callOnClick();
             }
         });
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sqlDB = myHelper.getWritableDatabase();
-                sqlDB.execSQL("DELETE FROM groupTBL WHERE gName = \"" + edtName.getText().toString() + "\";");
+                sqlDB.execSQL("DELETE FROM groupTBL WHERE gName = '" + edtName.getText().toString() + "';");
                 sqlDB.close();
-                btnDelete.callOnClick();
+                btnSelect.callOnClick();
             }
         });
     }
     public class myDBHelper extends SQLiteOpenHelper{
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            db.execSQL("DROP TABLE IF EXISTS groupTBL");
+            db.execSQL("DROP TABLE IF EXISTS groupTBL;");
             onCreate(db);
         }
         @Override
         public void onCreate(SQLiteDatabase db) {
-            db.execSQL("CREATE TABLE group ( gName CHAR(20) PRIMARY KEY, gNumber INTEGER);");
+            db.execSQL("CREATE TABLE groupTBL ( gName CHAR(20) PRIMARY KEY, gNumber INTEGER);");
         }
 
         public myDBHelper(Context context){
