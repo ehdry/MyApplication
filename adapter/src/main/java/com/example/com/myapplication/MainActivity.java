@@ -16,7 +16,13 @@ import android.widget.ImageView;
 public class MainActivity extends Activity {
     Integer[] posterID = {R.mipmap.poster1,R.mipmap.poster2,R.mipmap.poster3,R.mipmap.poster4
                             ,R.mipmap.poster5,R.mipmap.poster6,R.mipmap.poster7,R.mipmap.poster8
+                            ,R.mipmap.poster9,R.mipmap.poster10,R.mipmap.poster11,R.mipmap.poster12
+                            ,R.mipmap.poster1,R.mipmap.poster2,R.mipmap.poster3,R.mipmap.poster4
+                            ,R.mipmap.poster5,R.mipmap.poster6,R.mipmap.poster7,R.mipmap.poster8
                             ,R.mipmap.poster9,R.mipmap.poster10,R.mipmap.poster11,R.mipmap.poster12};
+    String[] posterTitle ={"도리화가","내부자들","열정같은소리하고있네","검은사제들","괴물의아이"
+                            ,"헝거게임더파이널","Quiet Night","하트 오브 더 씨","이터널 선샤인"
+                            ,"독립사이다","크림슨피크","파워레인저"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,9 +53,9 @@ public class MainActivity extends Activity {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(int position, View convertView, ViewGroup parent) { // getCount만큼 반복되는 부분?
             ImageView imageview = new ImageView(context);
-            imageview.setLayoutParams(new GridView.LayoutParams(100,150));//높이 너비?
+            imageview.setLayoutParams(new GridView.LayoutParams(100,150));//너비 높이?
             imageview.setScaleType(ImageView.ScaleType.FIT_CENTER);
             imageview.setPadding(5, 5, 5, 5);
 
@@ -62,11 +68,14 @@ public class MainActivity extends Activity {
                     AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
                     ImageView ivPoster = (ImageView)dialogView.findViewById(R.id.ivPoster);
                     ivPoster.setImageResource(posterID[pos]);
-                    dlg.setTitle("큰포스터");
+                    dlg.setTitle(posterTitle[pos%12]);
                     dlg.setIcon(R.mipmap.ic_launcher);
                     dlg.setView(dialogView);
                     dlg.setNegativeButton("닫기",null);
                     dlg.show();
+
+                    View test = getLayoutInflater().inflate(R.layout.dialog,null);
+
                 }
             });
             return imageview;
