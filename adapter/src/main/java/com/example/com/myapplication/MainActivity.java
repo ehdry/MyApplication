@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.BaseAdapter;
 import android.widget.GridLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
     Integer[] posterID = {R.mipmap.poster1,R.mipmap.poster2,R.mipmap.poster3,R.mipmap.poster4
@@ -54,12 +56,25 @@ public class MainActivity extends Activity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) { // getCount만큼 반복되는 부분?
-            ImageView imageview = new ImageView(context);
-            imageview.setLayoutParams(new GridView.LayoutParams(100,150));//너비 높이?
+            View gridView;
+            ImageView imageview;
+
+            if(convertView ==null){
+                gridView = new View(context);
+                LayoutInflater inflater = getLayoutInflater();
+                gridView = inflater.inflate(R.layout.poster,null);
+            }
+            else{//재활용 할때
+                gridView = (View)convertView;
+            }
+            TextView postertitle = (TextView)gridView.findViewById(R.id.movieName);
+            imageview = new ImageView(context);
+            imageview = (ImageView)gridView.findViewById(R.id.clickIvPoster);
             imageview.setScaleType(ImageView.ScaleType.FIT_CENTER);
             imageview.setPadding(5, 5, 5, 5);
 
             imageview.setImageResource(posterID[position]);
+            postertitle.setText(posterTitle[position%12]);
 
             final int pos = position;
             imageview.setOnClickListener(new View.OnClickListener(){
@@ -73,12 +88,9 @@ public class MainActivity extends Activity {
                     dlg.setView(dialogView);
                     dlg.setNegativeButton("닫기",null);
                     dlg.show();
-
-                    //View test = getLayoutInflater().inflate(R.layout.dialog,null);
-
                 }
             });
-            return imageview;
+            return gridView;
         }
     }
     @Override
